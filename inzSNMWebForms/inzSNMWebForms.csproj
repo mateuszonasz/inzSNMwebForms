@@ -38,12 +38,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -95,12 +105,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -165,6 +169,23 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <EntityDeploy Include="Models\snmDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>snmDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\snmDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>snmDataModel.edmx</DependentUpon>
+      <LastGenOutput>snmDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\snmDataModel.edmx.diagram">
+      <DependentUpon>snmDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\snmDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>snmDataModel.edmx</DependentUpon>
+      <LastGenOutput>snmDataModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -304,7 +325,67 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ankieta.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Autor.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bierze_udzial.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dzieło.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Epoka.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Glosujący.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Kategoria.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Muzyka.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Narodowosc.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ocena.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Plec.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\snmDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>snmDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\snmDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\snmDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>snmDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Statystyki.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Technika.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wiek.cs">
+      <DependentUpon>snmDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -331,6 +412,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
